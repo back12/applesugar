@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="40dp"
+        android:background="@drawable/bg_radius_20"
+        android:src="@drawable/movie_cover_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bg_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/bg_rating"
+        app:layout_constraintStart_toStartOf="@id/iv_cover"
+        app:layout_constraintTop_toTopOf="@id/iv_cover" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_star"
+        android:drawablePadding="6dp"
+        android:text="7.2"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/bg_rating"
+        app:layout_constraintEnd_toEndOf="@id/bg_rating"
+        app:layout_constraintStart_toStartOf="@id/bg_rating"
+        app:layout_constraintTop_toTopOf="@id/bg_rating" />
+
+    <ImageView
+        android:id="@+id/bg_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/bg_heart"
+        app:layout_constraintEnd_toEndOf="@id/iv_cover"
+        app:layout_constraintTop_toTopOf="@id/iv_cover" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_heart"
+        app:layout_constraintBottom_toBottomOf="@id/bg_heart"
+        app:layout_constraintEnd_toEndOf="@id/bg_heart"
+        app:layout_constraintStart_toStartOf="@id/bg_heart"
+        app:layout_constraintTop_toTopOf="@id/bg_heart" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
