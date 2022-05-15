@@ -32,7 +32,7 @@ public class HomeFragment extends Fragment {
 
         binding.rvMovie.setAdapter(new HomeMovieRecyclerAdapter());
         binding.rvMovie.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        binding.rvMovie.addItemDecoration(new RecyclerViewItemDecoration(getContext(), 30, -15, 0));
+        binding.rvMovie.addItemDecoration(new RecyclerViewItemDecoration(getContext(), 30, -10, 0));
 
         binding.rvActor.setAdapter(new HomeActorRecyclerAdapter());
         binding.rvActor.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));

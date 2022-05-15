@@ -7,7 +7,7 @@
         android:pivotX="26"
         android:pivotY="26"
         android:scaleX="0.7"
-        android:scaleY="0.9">
+        android:scaleY="0.7">
 
         <path
             android:fillAlpha="0.5"

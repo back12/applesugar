@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.applesugar.R;
+import com.example.applesugar.databinding.ItemFavoriteBinding;
 import com.example.applesugar.databinding.ItemFavoriteTopBinding;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipDrawable;
@@ -22,8 +24,13 @@ public class FavoriteRecyclerAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemFavoriteTopBinding binding = ItemFavoriteTopBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return new TopViewHolder(binding);
+        if(viewType == 0) {
+            ItemFavoriteTopBinding binding = ItemFavoriteTopBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+            return new TopViewHolder(binding);
+        }else{
+            ItemFavoriteBinding binding = ItemFavoriteBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+            return new ItemViewHolder(binding);
+        }
     }
 
     @Override
@@ -33,7 +40,7 @@ public class FavoriteRecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 1;
+        return 10;
     }
 
     @Override
@@ -54,6 +61,16 @@ public class FavoriteRecyclerAdapter extends RecyclerView.Adapter {
                 cgCategory.addView(chip);
             }
             cgCategory.check(cgCategory.getChildAt(0).getId());
+        }
+    }
+
+    class ItemViewHolder extends RecyclerView.ViewHolder {
+        private ImageView cover;
+
+        public ItemViewHolder(@NonNull ItemFavoriteBinding binding) {
+            super(binding.getRoot());
+            cover = binding.ivCover;
+            cover.setClipToOutline(true);
         }
     }
 }
