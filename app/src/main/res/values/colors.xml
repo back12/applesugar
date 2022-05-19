@@ -10,11 +10,14 @@
 
     <color name="background">#BFD97E</color>
     <color name="yellow">#FEC868</color>
+    <color name="light_yellow">#fee271</color>
     <color name="light_grey">#E5E5E5</color>
     <color name="green">#AAC673</color>
-    <color name="green_variant">#ddebbb</color>
+    <color name="light_green">#DDF0AF</color>
     <color name="divider">#C4C4C4</color>
     <color name="title">#473C33</color>
+    <color name="dark_blue">#35405A</color>
+    <color name="dark_blue_alpha50">#7f35405A</color>
 
     <color name="ripple">#1fffffff</color>
     <color name="text">#1C2238</color>

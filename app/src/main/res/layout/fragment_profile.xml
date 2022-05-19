@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <ImageView
+        android:id="@+id/iv_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="26dp"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_profile_pic"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="80dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="CrazyCat"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile_pic" />
+
+    <View
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="26dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_radius_8"
+        android:backgroundTint="@color/light_green"
+        app:layout_constraintBottom_toBottomOf="@id/tv_post"
+        app:layout_constraintTop_toBottomOf="@id/tv_username" />
+
+    <TextView
+        android:id="@+id/tv_post_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:text="0"
+        android:textColor="@color/dark_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tv_liked_count"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/bg"
+        app:layout_constraintTop_toTopOf="@id/bg" />
+
+    <TextView
+        android:id="@+id/tv_liked_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/dark_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tv_follow_count"
+        app:layout_constraintStart_toEndOf="@id/tv_post_count"
+        app:layout_constraintTop_toTopOf="@id/tv_post_count" />
+
+    <TextView
+        android:id="@+id/tv_follow_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/dark_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tv_follower_count"
+        app:layout_constraintStart_toEndOf="@id/tv_liked_count"
+        app:layout_constraintTop_toTopOf="@id/tv_post_count" />
+
+    <TextView
+        android:id="@+id/tv_follower_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:text="0"
+        android:textColor="@color/dark_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/bg"
+        app:layout_constraintStart_toEndOf="@id/tv_follow_count"
+        app:layout_constraintTop_toTopOf="@id/tv_post_count" />
+
+    <TextView
+        android:id="@+id/tv_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:paddingBottom="16dp"
+        android:text="发布"
+        android:textColor="@color/dark_blue_alpha50"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_post_count"
+        app:layout_constraintStart_toStartOf="@id/tv_post_count"
+        app:layout_constraintTop_toBottomOf="@id/tv_post_count" />
+
+    <TextView
+        android:id="@+id/tv_liked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="收藏"
+        android:textColor="@color/dark_blue_alpha50"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_liked_count"
+        app:layout_constraintStart_toStartOf="@id/tv_liked_count"
+        app:layout_constraintTop_toTopOf="@id/tv_post" />
+
+    <TextView
+        android:id="@+id/tv_follow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关注"
+        android:textColor="@color/dark_blue_alpha50"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_follow_count"
+        app:layout_constraintStart_toStartOf="@id/tv_follow_count"
+        app:layout_constraintTop_toTopOf="@id/tv_post" />
+
+    <TextView
+        android:id="@+id/tv_follower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="粉丝"
+        android:textColor="@color/dark_blue_alpha50"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_follower_count"
+        app:layout_constraintStart_toStartOf="@id/tv_follower_count"
+        app:layout_constraintTop_toTopOf="@id/tv_post" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

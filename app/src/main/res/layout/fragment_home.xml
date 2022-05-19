@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/xianzai"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@color/green_variant"
+            android:background="@color/light_green"
             android:overScrollMode="never"
             app:layout_constraintTop_toBottomOf="@id/tv" />
 
@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@color/green_variant"
+            android:background="@color/light_green"
             android:overScrollMode="never"
             app:layout_constraintTop_toBottomOf="@id/rv_movie" />
 

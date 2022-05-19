@@ -46,12 +46,14 @@
         android:id="@+id/tv_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_bg_tag"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_tag"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
         android:text="恐怖"
         android:textColor="@color/tag"
-        android:gravity="center"
         android:textSize="12sp"
-        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="@id/tv_title"
         app:layout_constraintTop_toTopOf="@id/guideline" />
 
@@ -65,14 +67,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:drawableStart="@drawable/ic_clock"
+        android:drawablePadding="10dp"
         android:text="1h 37m"
         android:textColor="@color/text"
         android:textSize="14sp"
-        android:drawablePadding="10dp"
-        app:layout_constraintStart_toStartOf="@id/tv_title"
         app:layout_constraintBottom_toBottomOf="@id/iv_cover"
-        android:layout_marginBottom="15dp"/>
+        app:layout_constraintStart_toStartOf="@id/tv_title" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
