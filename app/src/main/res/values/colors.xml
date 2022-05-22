@@ -19,6 +19,8 @@
     <color name="dark_blue">#35405A</color>
     <color name="dark_blue_alpha50">#7f35405A</color>
 
+    <color name="hint">#94A163</color>
+
     <color name="ripple">#1fffffff</color>
     <color name="text">#1C2238</color>
     <color name="tag">#616161</color>
