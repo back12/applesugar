@@ -21,7 +21,8 @@
         android:layout_height="140dp"
         android:layout_marginTop="80dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_outline"
+        android:padding="2dp"
+        android:background="@drawable/ic_outline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,7 +32,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="CrazyCat"
         android:textColor="@color/dark_blue"
         android:textSize="18sp"
         android:textStyle="bold"

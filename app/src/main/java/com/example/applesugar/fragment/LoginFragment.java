@@ -60,8 +60,9 @@ public class LoginFragment extends Fragment {
                 }
                 if (textPassword.toString().equals(user.getPassword())) {
                     Toast.makeText(getContext(), "登陆成功", Toast.LENGTH_SHORT).show();
-                    SharedPreferences sp = getActivity().getSharedPreferences("userInfo", Context.MODE_APPEND);
+                    SharedPreferences sp = getActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                     sp.edit().putString("userId", String.valueOf(user.getUid())).apply();
+                    sp.edit().putString("userName", user.getUsername()).apply();
                     sp.edit().putString("avatarUrl", user.getAvatarUrl()).apply();
                     goMain();
                 } else {

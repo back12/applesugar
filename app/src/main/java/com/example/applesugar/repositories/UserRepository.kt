@@ -1,4 +1,4 @@
-package com.example.applesugar.db.repository
+package com.example.applesugar.repositories
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -8,12 +8,15 @@ import com.example.applesugar.db.entity.User
 
 class UserRepository(context: Context) {
     private val userDao: UserDao
+    private val avatarAPI = "https://avatars.dicebear.com/api/open-peeps/"
+
     init {
         userDao = AppDatabase.getInstance(context).userDao()
     }
 
-    suspend fun updateAvatar(uid: Int, avatarUrl: String){
-        userDao.updateAvatar(uid, avatarUrl)
+    suspend fun updateAvatar(uid: Int, username: String){
+        val url = "$avatarAPI$username.svg"
+        userDao.updateAvatar(uid, url)
     }
 
     suspend fun insertUser(user: User): Long{

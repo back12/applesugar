@@ -1,6 +1,5 @@
 package com.example.applesugar.fragment;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -13,15 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.applesugar.R;
 import com.example.applesugar.adapter.FavoriteRecyclerAdapter;
 import com.example.applesugar.databinding.FragmentFavoriteBinding;
-import com.example.applesugar.util.RecyclerViewItemDecoration;
-import com.example.applesugar.util.ScreenUtil;
+import com.example.applesugar.utils.RecyclerViewItemDecoration;
+import com.example.applesugar.utils.ScreenUtil;
 
 public class FavoriteFragment extends Fragment {
     private FragmentFavoriteBinding binding;

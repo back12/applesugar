@@ -9,12 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.PagerSnapHelper;
 
 import com.example.applesugar.adapter.HomeActorRecyclerAdapter;
 import com.example.applesugar.adapter.HomeMovieRecyclerAdapter;
 import com.example.applesugar.databinding.FragmentHomeBinding;
-import com.example.applesugar.util.RecyclerViewItemDecoration;
+import com.example.applesugar.utils.RecyclerViewItemDecoration;
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;

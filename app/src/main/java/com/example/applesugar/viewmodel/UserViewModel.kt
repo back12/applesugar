@@ -6,13 +6,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.applesugar.db.entity.User
-import com.example.applesugar.db.repository.UserRepository
+import com.example.applesugar.repositories.UserRepository
 import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: UserRepository
     var userList: LiveData<List<User>>
-    private val address = "https://avatars.dicebear.com/api/open-peeps/"
 
     init {
         repository = UserRepository(application)
@@ -37,8 +36,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
 
     fun updateAvatar(uid: Int, username: String) {
         viewModelScope.launch {
-            val url = "$address$username.svg"
-            repository.updateAvatar(uid, url)
+            repository.updateAvatar(uid, username)
         }
     }
 

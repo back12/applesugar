@@ -47,7 +47,6 @@
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/layout/fragment_home.xml" value="0.30833333333333335" />
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/layout/fragment_profile.xml" value="0.3074561403508772" />
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/layout/fragment_rv.xml" value="0.3074561403508772" />
-        <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/layout/fragment_signup.xml" value="0.25" />
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/layout/fragmetn_favorite.xml" value="0.3074561403508772" />
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/layout/item_favorite.xml" value="0.30833333333333335" />
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/layout/item_favorite_top.xml" value="0.30833333333333335" />
@@ -56,6 +55,13 @@
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/layout/item_home_movie.xml" value="0.30833333333333335" />
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/layout/tab_indicator.xml" value="0.30833333333333335" />
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/menu/bottom_tabs.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/drawable/ic_outline.xml" value="0.2925" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/activity_main.xml" value="0.3695652173913043" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/activity_welcome.xml" value="0.4412280701754386" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/fragment_log_in.xml" value="0.4412280701754386" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/fragment_login.xml" value="0.4421052631578947" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/fragment_profile.xml" value="0.2394736842105263" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/fragment_welcome.xml" value="0.3695652173913043" />
       </map>
     </option>
   </component>

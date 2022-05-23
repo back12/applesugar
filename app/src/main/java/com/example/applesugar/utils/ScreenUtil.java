@@ -1,4 +1,4 @@
-package com.example.applesugar.util;
+package com.example.applesugar.utils;
 
 import android.app.Activity;
 import android.content.Context;

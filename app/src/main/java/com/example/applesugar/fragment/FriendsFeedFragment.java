@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.applesugar.R;
 import com.example.applesugar.adapter.FriendsFeedRecyclerAdapter;
 import com.example.applesugar.databinding.FragmentRvBinding;
-import com.example.applesugar.util.RecyclerViewItemDecoration;
-import com.example.applesugar.util.ScreenUtil;
+import com.example.applesugar.utils.RecyclerViewItemDecoration;
+import com.example.applesugar.utils.ScreenUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class FriendsFeedFragment extends Fragment {
