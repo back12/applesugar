@@ -20,7 +20,7 @@
         android:id="@+id/nav_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/bg_nav_bar"
         android:paddingHorizontal="10dp"

@@ -2,9 +2,9 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:fillViewport="true"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -69,10 +69,36 @@
             android:id="@+id/rv_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:background="@color/light_green"
             android:overScrollMode="never"
             app:layout_constraintTop_toBottomOf="@id/tv" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="正在热映 "
+            android:textColor="@color/title"
+            android:textSize="16sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="@id/rv_movie"
+            app:layout_constraintTop_toTopOf="@id/rv_movie" />
+
+        <TextView
+            android:id="@+id/tv_movie_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:padding="5dp"
+            android:text="更多"
+            android:textColor="@color/tag"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv1" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_actor"
@@ -90,8 +116,8 @@
             android:layout_marginVertical="30dp"
             android:paddingBottom="8dp"
             android:visibility="invisible"
-            app:layout_constraintTop_toBottomOf="@id/rv_actor"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_actor" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
