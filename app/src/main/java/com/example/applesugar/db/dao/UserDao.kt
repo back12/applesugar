@@ -12,8 +12,11 @@ interface UserDao {
     @Query("SELECT * FROM user WHERE username = :username")
     suspend fun getUserByName(username: String?): User?
 
-    @Insert
-    suspend fun insertUser(users: User?)
+    @Query("UPDATE user set avatarUrl = :avatarUrl WHERE uid = :uid")
+    suspend fun updateAvatar(uid: Int, avatarUrl: String)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertUser(users: User?): Long
 
     @Delete
     suspend fun deleteUser(user: User?)

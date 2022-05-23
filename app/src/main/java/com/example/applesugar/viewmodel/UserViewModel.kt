@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: UserRepository
     var userList: LiveData<List<User>>
+    private val address = "https://avatars.dicebear.com/api/open-peeps/"
 
     init {
         repository = UserRepository(application)
@@ -24,6 +25,21 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             user.postValue(repository.getUserByName(name))
         }
         return user
+    }
+
+    fun insert(user: User): LiveData<Long> {
+        val rowId = MutableLiveData<Long>()
+        viewModelScope.launch {
+            rowId.postValue(repository.insertUser(user))
+        }
+        return rowId
+    }
+
+    fun updateAvatar(uid: Int, username: String) {
+        viewModelScope.launch {
+            val url = "$address$username.svg"
+            repository.updateAvatar(uid, url)
+        }
     }
 
 }

@@ -31,5 +31,8 @@ public class WelcomeFragment extends Fragment {
         binding.tvLogin.setOnClickListener(v -> {
             controller.navigate(R.id.action_welcomeFragment_to_loginFragment);
         });
+        binding.tvSignup.setOnClickListener(v -> {
+            controller.navigate(R.id.action_welcomeFragment_to_signupFragment);
+        });
     }
 }

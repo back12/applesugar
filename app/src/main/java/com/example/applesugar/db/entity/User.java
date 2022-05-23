@@ -2,9 +2,11 @@ package com.example.applesugar.db.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(indices = {@Index(value = {"username"}, unique = true)})
 public class User {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "uid", typeAffinity = ColumnInfo.INTEGER)
@@ -13,6 +15,8 @@ public class User {
     private String username;
     @ColumnInfo(name = "password", typeAffinity = ColumnInfo.TEXT)
     private String password;
+    @ColumnInfo(name = "avatarUrl", typeAffinity = ColumnInfo.TEXT)
+    private String avatarUrl = null;
 
     public User(String username, String password) {
         this.username = username;
@@ -41,5 +45,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 }

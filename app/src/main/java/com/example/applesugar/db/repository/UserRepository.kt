@@ -12,6 +12,14 @@ class UserRepository(context: Context) {
         userDao = AppDatabase.getInstance(context).userDao()
     }
 
+    suspend fun updateAvatar(uid: Int, avatarUrl: String){
+        userDao.updateAvatar(uid, avatarUrl)
+    }
+
+    suspend fun insertUser(user: User): Long{
+        return userDao.insertUser(user)
+    }
+
     suspend fun getUserByName(name: String): User?{
         return userDao.getUserByName(name)
     }

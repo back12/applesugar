@@ -15,11 +15,23 @@
             app:exitAnim="@anim/anim_wait"
             app:popEnterAnim="@anim/anim_wait"
             app:popExitAnim="@anim/anim_slide_in"/>
+        <action
+            android:id="@+id/action_welcomeFragment_to_signupFragment"
+            app:destination="@id/signupFragment"
+            app:enterAnim="@anim/anim_slide_out"
+            app:exitAnim="@anim/anim_wait"
+            app:popEnterAnim="@anim/anim_wait"
+            app:popExitAnim="@anim/anim_slide_in"/>
     </fragment>
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.applesugar.fragment.LoginFragment"
         android:label="LoginFragment" />
+
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.example.applesugar.fragment.SignupFragment"
+        android:label="SignupFragment" />
 
 </navigation>
