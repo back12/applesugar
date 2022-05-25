@@ -34,8 +34,7 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val sp = requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
         val avatarUrl = sp.getString("avatarUrl", "")
-        Log.e("TAG", avatarUrl!!)
-        binding.ivProfilePic.loadSvg(avatarUrl)
+        binding.ivProfilePic.loadSvg(avatarUrl!!)
         binding.tvUsername.text = sp.getString("userName", "User")
 
     }

@@ -8,15 +8,22 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.applesugar.adapter.HomeActorRecyclerAdapter;
 import com.example.applesugar.adapter.HomeMovieRecyclerAdapter;
 import com.example.applesugar.databinding.FragmentHomeBinding;
+import com.example.applesugar.db.entity.OnScreenMovie;
 import com.example.applesugar.utils.RecyclerViewItemDecoration;
+import com.example.applesugar.viewmodel.HomeViewModel;
+
+import java.util.List;
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
+    private HomeViewModel model;
 
     @Nullable
     @Override
@@ -29,7 +36,11 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.rvMovie.setAdapter(new HomeMovieRecyclerAdapter());
+        model = new ViewModelProvider(this).get(HomeViewModel.class);
+
+        model.getOnScreenMovieList().observe(getViewLifecycleOwner(), onScreenMovies -> {
+            binding.rvMovie.setAdapter(new HomeMovieRecyclerAdapter(onScreenMovies));
+        });
         binding.rvMovie.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         binding.rvMovie.addItemDecoration(new RecyclerViewItemDecoration(getContext(), 30, -10, 0));
 

@@ -6,7 +6,7 @@ import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(indices = {@Index(value = {"username"}, unique = true)})
+@Entity(tableName = "user", indices = {@Index(value = {"username"}, unique = true)})
 public class User {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "uid", typeAffinity = ColumnInfo.INTEGER)
