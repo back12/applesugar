@@ -73,19 +73,6 @@
             app:layout_constraintStart_toStartOf="@id/rv_movie"
             app:layout_constraintTop_toTopOf="@id/rv_movie" />
 
-        <TextView
-            android:id="@+id/tv_movie_more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="15dp"
-            android:padding="5dp"
-            android:text="更多"
-            android:textColor="@color/tag"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv1" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_actor"
             android:layout_width="match_parent"

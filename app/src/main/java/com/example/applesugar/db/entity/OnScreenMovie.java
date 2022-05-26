@@ -7,8 +7,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "movie_on_screen")
-public class OnScreenMovie {
+public class OnScreenMovie implements Serializable {
     @PrimaryKey
     @ColumnInfo(name = "id", typeAffinity = INTEGER)
     private int id;

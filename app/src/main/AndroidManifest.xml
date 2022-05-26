@@ -27,6 +27,7 @@
             android:windowSoftInputMode="adjustPan">
 
         </activity>
+        <activity android:name=".activity.OnScreenMovieActivity" />
     </application>
 
 </manifest>

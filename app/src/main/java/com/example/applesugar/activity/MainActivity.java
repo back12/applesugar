@@ -6,6 +6,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
+import android.view.Window;
 
 import com.example.applesugar.R;
 import com.example.applesugar.databinding.ActivityMainBinding;
@@ -18,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         initView();
     }
 
