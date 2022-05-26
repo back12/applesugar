@@ -58,6 +58,7 @@ public class OnScreenMovieActivity extends AppCompatActivity {
                 }
             }
         });
+        binding.rv.smoothScrollToPosition(position);
 
     }
 
