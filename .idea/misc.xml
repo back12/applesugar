@@ -55,6 +55,9 @@
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/layout/item_home_movie.xml" value="0.30833333333333335" />
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/layout/tab_indicator.xml" value="0.30833333333333335" />
         <entry key="..\:/StudioProjects/AppleSugar/app/src/main/res/menu/bottom_tabs.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/drawable/bg_profile_rv.xml" value="0.435" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/drawable/bg_radius_20.xml" value="0.435" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/drawable/bg_radius_8.xml" value="0.435" />
         <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/drawable/ic_baseline_more_horiz_24.xml" value="0.435" />
         <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/drawable/ic_outline.xml" value="0.2925" />
         <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/activity_main.xml" value="0.3695652173913043" />
@@ -69,7 +72,9 @@
         <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/fragment_welcome.xml" value="0.3695652173913043" />
         <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/item_favorite.xml" value="0.4421052631578947" />
         <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/item_home_movie.xml" value="0.4421052631578947" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/item_home_movie_top.xml" value="0.4421052631578947" />
         <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/item_on_screen_movie.xml" value="0.4421052631578947" />
+        <entry key="..\:/Users/16143/AndroidStudioProjects/applesugar/app/src/main/res/layout/item_profile.xml" value="0.4412280701754386" />
       </map>
     </option>
   </component>

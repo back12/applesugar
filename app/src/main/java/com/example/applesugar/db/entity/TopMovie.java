@@ -8,8 +8,10 @@ import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
+
 @Entity(tableName = "movie_top_250")
-public class TopMovie {
+public class TopMovie implements Serializable {
     @PrimaryKey
     @NotNull
     @ColumnInfo(name = "mid", typeAffinity = TEXT)

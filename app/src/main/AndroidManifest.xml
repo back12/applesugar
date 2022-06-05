@@ -24,10 +24,9 @@
         <activity
             android:name=".activity.MainActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
-        <activity android:name=".activity.OnScreenMovieActivity" />
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".activity.OnScreenMovieDetailActivity" />
+        <activity android:name=".activity.TopMovieDetailActivity" />
     </application>
 
 </manifest>

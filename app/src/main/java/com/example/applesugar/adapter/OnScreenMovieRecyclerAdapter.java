@@ -11,9 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.applesugar.activity.OnScreenMovieActivity;
+import com.example.applesugar.activity.OnScreenMovieDetailActivity;
 import com.example.applesugar.databinding.ItemHomeMovieBinding;
-import com.example.applesugar.databinding.ItemOnScreenMovieBinding;
 import com.example.applesugar.db.entity.OnScreenMovie;
 
 import java.io.Serializable;
@@ -30,8 +29,8 @@ public class OnScreenMovieRecyclerAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemOnScreenMovieBinding binding = ItemOnScreenMovieBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return new MovieViewHolder(binding);
+        ItemHomeMovieBinding binding = ItemHomeMovieBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new ItemViewHolder(binding);
     }
 
     @Override
@@ -39,7 +38,15 @@ public class OnScreenMovieRecyclerAdapter extends RecyclerView.Adapter {
         Context context = holder.itemView.getContext();
         Glide.with(context)
                 .load(list.get(position).getImg())
-                .into(((MovieViewHolder) holder).ivCover);
+                .into(((ItemViewHolder) holder).ivCover);
+        ((ItemViewHolder) holder).tvScore.setText(list.get(position).getRating());
+//        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context,
+//                ((MovieViewHolder) holder).ivCover, "movie");
+        Intent intent = new Intent(context, OnScreenMovieDetailActivity.class)
+                .putExtra("position", position)
+                .putExtra("list", (Serializable) list);
+
+        ((ItemViewHolder) holder).ivCover.setOnClickListener(v -> context.startActivity(intent));
     }
 
     @Override
@@ -47,13 +54,15 @@ public class OnScreenMovieRecyclerAdapter extends RecyclerView.Adapter {
         return list.size();
     }
 
-    class MovieViewHolder extends RecyclerView.ViewHolder {
+    class ItemViewHolder extends RecyclerView.ViewHolder {
         private ImageView ivCover;
+        private TextView tvScore;
 
-        public MovieViewHolder(@NonNull ItemOnScreenMovieBinding binding) {
+        public ItemViewHolder(@NonNull ItemHomeMovieBinding binding) {
             super(binding.getRoot());
             ivCover = binding.ivCover;
             ivCover.setClipToOutline(true);
+            tvScore = binding.tvScore;
         }
     }
 }
