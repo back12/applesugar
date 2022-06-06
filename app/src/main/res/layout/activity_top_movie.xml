@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="正在热映"
+        android:text="电影榜单"
         android:textColor="@color/title"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -26,8 +26,8 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_radius_20"
         android:backgroundTint="@color/red"
-        android:paddingVertical="6dp"
         android:gravity="center"
+        android:paddingVertical="6dp"
         android:text="想看"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/tv_title"
@@ -38,46 +38,45 @@
         android:id="@+id/iv_cover"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="36dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/bg_radius_8"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
         app:layout_constraintDimensionRatio="5:7"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
-        app:layout_constraintBottom_toBottomOf="@id/guideline"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"/>
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.36" />
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="24dp"
         android:textColor="@color/title"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_cover" />
+        app:layout_constraintStart_toEndOf="@id/iv_cover"
+        app:layout_constraintTop_toTopOf="@id/iv_cover" />
 
     <androidx.appcompat.widget.AppCompatRatingBar
         android:id="@+id/ratingBar"
         style="@android:style/Widget.Material.Light.RatingBar.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="12dp"
         android:numStars="5"
         android:rating="8.1"
         android:stepSize="0.5"
         android:theme="@style/MyRatingBar"
-        android:layout_marginStart="32dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_name"
         app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
     <TextView
@@ -96,30 +95,64 @@
         android:id="@+id/tv_screen_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/text_black"
         android:textSize="12sp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintBottom_toBottomOf="@id/ratingBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ratingBar" />
+        app:layout_constraintStart_toStartOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_rating" />
 
     <TextView
         android:id="@+id/tv_stars"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:textColor="@color/text_black"
-        android:textSize="14sp"
-        android:layout_marginStart="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ratingBar" />
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_screen_time" />
+
+    <TextView
+        android:id="@+id/tv_language"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/text_black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="24dp"
+        android:ellipsize="end"
+        app:layout_constraintTop_toBottomOf="@id/tv_stars" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6"/>
+        app:layout_constraintGuide_percent="0.6" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="简介"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/iv_cover" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:maxLines="6"
+        android:textColor="@color/grey"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/tv" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"

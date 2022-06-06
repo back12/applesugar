@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.example.applesugar.adapter.OnScreenMovieDetailRecyclerAdapter;
 import com.example.applesugar.adapter.TopMovieDetailRecyclerAdapter;
 import com.example.applesugar.databinding.ActivityOnScreenMovieBinding;
+import com.example.applesugar.databinding.ActivityTopMovieBinding;
 import com.example.applesugar.db.entity.MarkedMovie;
 import com.example.applesugar.db.entity.TopMovie;
 import com.example.applesugar.utils.RecyclerViewItemDecoration;
@@ -30,14 +31,14 @@ import com.example.applesugar.viewmodel.MarkedMovieViewModel;
 import java.util.List;
 
 public class TopMovieDetailActivity extends AppCompatActivity {
-    private ActivityOnScreenMovieBinding binding;
+    private ActivityTopMovieBinding binding;
     private MarkedMovieViewModel model;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityOnScreenMovieBinding.inflate(getLayoutInflater());
+        binding = ActivityTopMovieBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         model = new ViewModelProvider(this).get(MarkedMovieViewModel.class);
@@ -83,7 +84,8 @@ public class TopMovieDetailActivity extends AppCompatActivity {
         binding.tvRating.setText(item.getRating());
         binding.tvScreenTime.setText("上映时间：" + item.getReleaseDate());
         binding.tvStars.setText("类型：" + item.getGenre());
-
+        binding.tvLanguage.setText("语言：" + item.getLanguage());
+        binding.tvDescription.setText(item.getDescription());
 
         int uid = getSharedPreferences("userInfo", Context.MODE_PRIVATE).getInt("userId", 0);
         model.checkIsMarked(item.getMid(), uid).observe(this, new Observer<Boolean>() {

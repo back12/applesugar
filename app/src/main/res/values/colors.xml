@@ -22,7 +22,7 @@
 
     <color name="hint">#94A163</color>
 
-    <color name="grey">#a0a0a0</color>
+    <color name="grey">#b0ffffff</color>
     <color name="ripple">#1fffffff</color>
     <color name="text">#1C2238</color>
     <color name="tag">#616161</color>
