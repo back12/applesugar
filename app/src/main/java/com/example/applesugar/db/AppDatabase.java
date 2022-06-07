@@ -8,14 +8,16 @@ import androidx.room.RoomDatabase;
 
 import com.example.applesugar.db.dao.MarkedMovieDao;
 import com.example.applesugar.db.dao.OnScreenMovieDao;
+import com.example.applesugar.db.dao.PostDao;
 import com.example.applesugar.db.dao.TopMovieDao;
 import com.example.applesugar.db.dao.UserDao;
 import com.example.applesugar.db.entity.MarkedMovie;
 import com.example.applesugar.db.entity.OnScreenMovie;
+import com.example.applesugar.db.entity.Post;
 import com.example.applesugar.db.entity.TopMovie;
 import com.example.applesugar.db.entity.User;
 
-@Database(entities = {User.class, OnScreenMovie.class, TopMovie.class, MarkedMovie.class}, version = 1, exportSchema = false)
+@Database(entities = {User.class, OnScreenMovie.class, TopMovie.class, MarkedMovie.class, Post.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static final String DATABASE_NAME = "AppleSugar.db";
     private static AppDatabase instance;
@@ -34,6 +36,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract OnScreenMovieDao onScreenMovieDao();
     public abstract TopMovieDao topMovieDao();
     public abstract MarkedMovieDao markedMovieDao();
+    public abstract PostDao postDao();
 
 }
 

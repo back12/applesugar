@@ -1,5 +1,6 @@
 package com.example.applesugar.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.applesugar.activity.NewPostActivity;
 import com.example.applesugar.adapter.FriendsPagerAdapter;
 import com.example.applesugar.databinding.FragmentFriendsBinding;
 import com.google.android.material.tabs.TabLayout;
@@ -39,5 +41,6 @@ public class FriendsFragment extends Fragment {
             }
         }).attach();
 
+        binding.fab.setOnClickListener(v -> requireContext().startActivity(new Intent(requireContext(), NewPostActivity.class)));
     }
 }

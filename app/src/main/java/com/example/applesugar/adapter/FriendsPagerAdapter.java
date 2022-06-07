@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.applesugar.fragment.FriendsFeedFragment;
+import com.example.applesugar.fragment.PostFeedFragment;
 
 public class FriendsPagerAdapter extends FragmentStateAdapter {
 
@@ -17,7 +17,7 @@ public class FriendsPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return new FriendsFeedFragment();
+        return new PostFeedFragment();
     }
 
     @Override

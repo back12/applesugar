@@ -9,20 +9,27 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.applesugar.R;
-import com.example.applesugar.adapter.FriendsFeedRecyclerAdapter;
+import com.example.applesugar.adapter.PostFeedRecyclerAdapter;
 import com.example.applesugar.databinding.FragmentRvBinding;
+import com.example.applesugar.db.entity.Post;
 import com.example.applesugar.utils.RecyclerViewItemDecoration;
 import com.example.applesugar.utils.ScreenUtil;
+import com.example.applesugar.viewmodel.PostViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class FriendsFeedFragment extends Fragment {
+import java.util.List;
+
+public class PostFeedFragment extends Fragment {
     private FragmentRvBinding binding;
-    private FriendsFeedRecyclerAdapter adapter;
+    private PostFeedRecyclerAdapter adapter;
     private FloatingActionButton mFloatingActionButton;
+    private PostViewModel model;
 
     @Nullable
     @Override
@@ -34,10 +41,26 @@ public class FriendsFeedFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        adapter = new FriendsFeedRecyclerAdapter();
-        binding.rv.setAdapter(adapter);
+        model = new ViewModelProvider(this).get(PostViewModel.class);
+
+        model.getPostList().observe(getViewLifecycleOwner(), new Observer<List<Post>>() {
+            @Override
+            public void onChanged(List<Post> posts) {
+                adapter = new PostFeedRecyclerAdapter(posts);
+                adapter.setOnLikeClickListener((liked, pid) -> {
+                    model.updateLiked(1 - liked, pid).observe(getViewLifecycleOwner(), new Observer<Integer>() {
+                        @Override
+                        public void onChanged(Integer integer) {
+                            adapter.notifyItemChanged(pid - posts.size());
+                        }
+                    });
+                });
+                binding.rv.setAdapter(adapter);
+            }
+        });
+
         binding.rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        binding.rv.addItemDecoration(new RecyclerViewItemDecoration(getContext(), 40, 0, 0){
+        binding.rv.addItemDecoration(new RecyclerViewItemDecoration(getContext(), 20, 20, 0){
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
