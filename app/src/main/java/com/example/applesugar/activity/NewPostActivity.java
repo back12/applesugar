@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -36,10 +40,14 @@ public class NewPostActivity extends AppCompatActivity {
     private void initView() {
         binding.ivBack.setOnClickListener(v -> finish());
         binding.tvPost.setOnClickListener(v -> {
+            String content = binding.etContent.getText().toString();
+            if(content.length() < 6){
+                Toast.makeText(NewPostActivity.this, "字符数不得小于6个", Toast.LENGTH_SHORT).show();
+                return;
+            }
             SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
             String username = sp.getString("userName", "");
             int uid = sp.getInt("userId", 0);
-            String content = binding.etContent.getText().toString();
             Post post = new Post(username, content, uid);
             model.insertPost(post).observe(this, aLong -> {
                 Toast.makeText(NewPostActivity.this, "发布成功", Toast.LENGTH_SHORT).show();
@@ -63,5 +71,15 @@ public class NewPostActivity extends AppCompatActivity {
                 binding.tvWordCount.setText(count + "/100");
             }
         });
+        binding.etContent.requestFocus();
+        InputMethodManager inputManager =(InputMethodManager)binding.etContent.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                inputManager.showSoftInput(binding.etContent, 0);
+            }
+        }, 100);
+
     }
 }
