@@ -29,4 +29,8 @@ public class MovieRepository {
         return topMovieDao.getTopMovieList();
     }
 
+    public LiveData<List<TopMovie>> getMovieLikeName(String name){
+        return topMovieDao.getMovieLikeName(name);
+    }
+
 }

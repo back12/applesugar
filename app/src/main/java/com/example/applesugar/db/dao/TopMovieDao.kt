@@ -10,4 +10,7 @@ interface TopMovieDao {
 
     @Query("SELECT * FROM movie_top_250")
     fun getTopMovieList(): LiveData<List<TopMovie>>
+
+    @Query("SELECT * FROM movie_top_250 WHERE name LIKE '%' || :name || '%'")
+    fun getMovieLikeName(name: String): LiveData<List<TopMovie>>
 }

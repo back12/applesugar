@@ -1,6 +1,8 @@
 package com.example.applesugar.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,14 +10,19 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.applesugar.activity.SearchActivity;
 import com.example.applesugar.adapter.TopMovieRecyclerAdapter;
 import com.example.applesugar.adapter.OnScreenMovieRecyclerAdapter;
 import com.example.applesugar.databinding.FragmentHomeBinding;
+import com.example.applesugar.db.entity.TopMovie;
 import com.example.applesugar.utils.RecyclerViewItemDecoration;
 import com.example.applesugar.viewmodel.HomeViewModel;
+
+import java.util.List;
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
@@ -46,5 +53,6 @@ public class HomeFragment extends Fragment {
         binding.rvMovieTop.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         binding.rvMovieTop.addItemDecoration(new RecyclerViewItemDecoration(getContext(), 20, 20, 0));
 
+        binding.ivSearch.setOnClickListener(v -> requireContext().startActivity(new Intent(requireContext(), SearchActivity.class)));
     }
 }

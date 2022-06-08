@@ -28,4 +28,8 @@ public class HomeViewModel extends AndroidViewModel {
         return repository.getTopMovieList();
     }
 
+    public LiveData<List<TopMovie>> getMovieLikeName(String name){
+        return repository.getMovieLikeName(name);
+    }
+
 }

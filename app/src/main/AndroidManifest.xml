@@ -30,6 +30,7 @@
         <activity android:name=".activity.OnScreenMovieDetailActivity" />
         <activity android:name=".activity.TopMovieDetailActivity" />
         <activity android:name=".activity.NewPostActivity" />
+        <activity android:name=".activity.SearchActivity" />
     </application>
 
 </manifest>
