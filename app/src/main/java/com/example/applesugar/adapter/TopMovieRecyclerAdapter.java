@@ -57,7 +57,7 @@ public class TopMovieRecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return showAll ? list.size() : 10;
+        return showAll ? list.size() : 5;
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder {

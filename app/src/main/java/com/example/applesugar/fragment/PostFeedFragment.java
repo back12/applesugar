@@ -2,6 +2,7 @@ package com.example.applesugar.fragment;
 
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
 
 import com.example.applesugar.R;
 import com.example.applesugar.adapter.PostFeedRecyclerAdapter;
@@ -30,6 +32,7 @@ public class PostFeedFragment extends Fragment {
     private PostFeedRecyclerAdapter adapter;
     private FloatingActionButton mFloatingActionButton;
     private PostViewModel model;
+    private int size = 0;
 
     @Nullable
     @Override
@@ -46,21 +49,23 @@ public class PostFeedFragment extends Fragment {
         model.getPostList().observe(getViewLifecycleOwner(), new Observer<List<Post>>() {
             @Override
             public void onChanged(List<Post> posts) {
+                if(posts.size() == size){
+                    adapter.setPosts(posts);
+                    return;
+                }
                 adapter = new PostFeedRecyclerAdapter(posts);
                 adapter.setOnLikeClickListener((liked, pid) -> {
-                    model.updateLiked(1 - liked, pid).observe(getViewLifecycleOwner(), new Observer<Integer>() {
-                        @Override
-                        public void onChanged(Integer integer) {
-                            adapter.notifyItemChanged(pid - posts.size());
-                        }
+                    model.updateLiked(1 - liked, pid).observe(getViewLifecycleOwner(), integer -> {
+                        adapter.notifyItemChanged(posts.size() - pid);
                     });
                 });
                 binding.rv.setAdapter(adapter);
+                size = posts.size();
             }
         });
-
-        binding.rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        binding.rv.addItemDecoration(new RecyclerViewItemDecoration(getContext(), 20, 20, 0){
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        binding.rv.setLayoutManager(layoutManager);
+        binding.rv.addItemDecoration(new RecyclerViewItemDecoration(getContext(), 20, 20, 0) {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);

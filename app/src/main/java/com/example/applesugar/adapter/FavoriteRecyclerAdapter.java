@@ -1,6 +1,7 @@
 package com.example.applesugar.adapter;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,21 +14,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.applesugar.R;
 import com.example.applesugar.databinding.ItemFavoriteBinding;
 import com.example.applesugar.databinding.ItemFavoriteTopBinding;
+import com.example.applesugar.db.entity.MarkedMovie;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.chip.ChipGroup;
 
-public class FavoriteRecyclerAdapter extends RecyclerView.Adapter {
-    private final static String[] categories = new String[]{"全部", "动作", "冒险"};
+import java.util.List;
 
+public class FavoriteRecyclerAdapter extends RecyclerView.Adapter {
+    private final static String[] categories = new String[]{"想看", "看过"};
+    private OnChipsCheckListener onChipsCheckListener;
+    private List<MarkedMovie> list;
+    private int type;
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if(viewType == 0) {
+        if (viewType == 0) {
             ItemFavoriteTopBinding binding = ItemFavoriteTopBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
             return new TopViewHolder(binding);
-        }else{
+        } else {
             ItemFavoriteBinding binding = ItemFavoriteBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
             return new ItemViewHolder(binding);
         }
@@ -40,12 +46,29 @@ public class FavoriteRecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 10;
+        return list == null ? 1 : list.size() + 1;
     }
 
     @Override
     public int getItemViewType(int position) {
         return position;
+    }
+
+    public interface OnChipsCheckListener{
+        void onCheckChanged(ChipGroup group, List<Integer> checkedIds);
+    }
+
+    public void setOnChipsCheckListener(OnChipsCheckListener onChipsCheckListener) {
+        this.onChipsCheckListener = onChipsCheckListener;
+    }
+
+
+    public void setList(List<MarkedMovie> list) {
+        this.list = list;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     class TopViewHolder extends RecyclerView.ViewHolder {
@@ -61,6 +84,12 @@ public class FavoriteRecyclerAdapter extends RecyclerView.Adapter {
                 cgCategory.addView(chip);
             }
             cgCategory.check(cgCategory.getChildAt(0).getId());
+            cgCategory.setOnCheckedStateChangeListener(new ChipGroup.OnCheckedStateChangeListener() {
+                @Override
+                public void onCheckedChanged(@NonNull ChipGroup group, @NonNull List<Integer> checkedIds) {
+                    onChipsCheckListener.onCheckChanged(group, checkedIds);
+                }
+            });
         }
     }
 

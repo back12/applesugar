@@ -21,6 +21,10 @@ public class PostFeedRecyclerAdapter extends RecyclerView.Adapter {
         this.posts = posts;
     }
 
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

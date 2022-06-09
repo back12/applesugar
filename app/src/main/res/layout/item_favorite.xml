@@ -6,17 +6,17 @@
 
     <ImageView
         android:id="@+id/iv_cover"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:background="@drawable/bg_radius_20"
+        android:adjustViewBounds="true"
+        android:background="@drawable/bg_radius_8"
         android:src="@drawable/movie_cover_1_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="15dp"
@@ -24,57 +24,10 @@
         android:maxLines="2"
         android:text="The Swallow"
         android:textColor="@color/text"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_cover"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatRatingBar
-        style="@android:style/Widget.Material.Light.RatingBar.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:numStars="5"
-        android:rating="4"
-        android:stepSize="0.5"
-        android:theme="@style/MyRatingBar"
-        app:layout_constraintBottom_toTopOf="@id/guideline"
-        app:layout_constraintStart_toStartOf="@id/tv_title" />
-
-    <TextView
-        android:id="@+id/tv_tag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_tag"
-        android:gravity="center"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="4dp"
-        android:text="恐怖"
-        android:textColor="@color/tag"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@id/tv_title"
-        app:layout_constraintTop_toTopOf="@id/guideline" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:drawableStart="@drawable/ic_clock"
-        android:drawablePadding="10dp"
-        android:text="1h 37m"
-        android:textColor="@color/text"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_cover"
-        app:layout_constraintStart_toStartOf="@id/tv_title" />
-
+        app:layout_constraintEnd_toEndOf="@id/iv_cover"
+        app:layout_constraintStart_toStartOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/iv_cover" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
