@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -37,19 +39,35 @@ public class SearchActivity extends AppCompatActivity {
     private void initView() {
         model = new ViewModelProvider(this).get(HomeViewModel.class);
 
-        binding.etSearch.setOnEditorActionListener((v, actionId, event) -> {
-            if(actionId == EditorInfo.IME_ACTION_SEARCH){
+//        binding.etSearch.setOnEditorActionListener((v, actionId, event) -> {
+//            if(actionId == EditorInfo.IME_ACTION_SEARCH){
+//
+//
+//            }
+//            return false;
+//        });
+        binding.etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 String name = binding.etSearch.getText().toString();
-                model.getMovieLikeName(name).observe(this, topMovies -> {
+                model.getMovieLikeName(name).observe(SearchActivity.this, topMovies -> {
                     binding.tvHint.setVisibility(View.INVISIBLE);
                     if(topMovies.size() == 0){
                         binding.tvHint.setVisibility(View.VISIBLE);
                     }
                     binding.rv.setAdapter(new TopMovieRecyclerAdapter(topMovies, true));
                 });
-
             }
-            return false;
         });
         binding.rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         binding.rv.addItemDecoration(new RecyclerViewItemDecoration(this, 20, 0, 0));
