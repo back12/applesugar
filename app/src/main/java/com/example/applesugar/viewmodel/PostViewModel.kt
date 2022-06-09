@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.applesugar.db.entity.Comment
 import com.example.applesugar.db.entity.Post
 import com.example.applesugar.repositories.PostRepository
 import kotlinx.coroutines.launch
@@ -23,6 +24,18 @@ class PostViewModel(application: Application): AndroidViewModel(application) {
         val rowId = MutableLiveData<Long>()
         viewModelScope.launch {
             rowId.postValue(repository.insertPost(post))
+        }
+        return rowId
+    }
+
+    fun getCommentList(): LiveData<List<Comment>> {
+        return repository.getCommentList()
+    }
+
+    fun insertComment(comment: Comment): LiveData<Long> {
+        val rowId = MutableLiveData<Long>()
+        viewModelScope.launch {
+            rowId.postValue(repository.insertComment(comment))
         }
         return rowId
     }

@@ -15,9 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.applesugar.R;
-import com.example.applesugar.adapter.PostFeedRecyclerAdapter;
+import com.example.applesugar.adapter.CommentFeedRecyclerAdapter;
 import com.example.applesugar.databinding.FragmentRvBinding;
-import com.example.applesugar.db.entity.Post;
+import com.example.applesugar.db.entity.Comment;
 import com.example.applesugar.utils.RecyclerViewItemDecoration;
 import com.example.applesugar.utils.ScreenUtil;
 import com.example.applesugar.viewmodel.PostViewModel;
@@ -25,9 +25,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-public class PostFeedFragment extends Fragment {
+public class CommentFeedFragment extends Fragment {
     private FragmentRvBinding binding;
-    private PostFeedRecyclerAdapter adapter;
+    private CommentFeedRecyclerAdapter adapter;
     private FloatingActionButton mFloatingActionButton;
     private PostViewModel model;
     private int size = -1;
@@ -43,25 +43,23 @@ public class PostFeedFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         model = new ViewModelProvider(this).get(PostViewModel.class);
-
-        model.getPostList().observe(getViewLifecycleOwner(), new Observer<List<Post>>() {
+        model.getCommentList().observe(getViewLifecycleOwner(), new Observer<List<Comment>>() {
             @Override
-            public void onChanged(List<Post> posts) {
-                if (posts.size() == size) {
-                    adapter.setPosts(posts);
+            public void onChanged(List<Comment> comments) {
+                if (comments.size() == size) {
+                    adapter.setComments(comments);
                     return;
                 }
-                adapter = new PostFeedRecyclerAdapter(posts);
+                adapter = new CommentFeedRecyclerAdapter(comments);
                 adapter.setOnLikeClickListener((liked, pid) -> {
                     model.updateLiked(1 - liked, pid).observe(getViewLifecycleOwner(), integer -> {
-                        adapter.notifyItemChanged(posts.size() - pid);
+                        adapter.notifyItemChanged(comments.size() - pid);
                     });
                 });
                 binding.rv.setAdapter(adapter);
-                size = posts.size();
+                size = comments.size();
             }
         });
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         binding.rv.setLayoutManager(layoutManager);
         binding.rv.addItemDecoration(new RecyclerViewItemDecoration(getContext(), 20, 20, 0) {

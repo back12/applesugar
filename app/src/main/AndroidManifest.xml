@@ -15,22 +15,23 @@
         <activity
             android:name=".activity.WelcomeActivity"
             android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
         <activity android:name=".activity.OnScreenMovieDetailActivity" />
         <activity android:name=".activity.TopMovieDetailActivity" />
         <activity android:name=".activity.NewPostActivity" />
         <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.NewCommentActivity" />
     </application>
 
 </manifest>

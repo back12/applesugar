@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.applesugar.activity.NewCommentActivity;
 import com.example.applesugar.activity.NewPostActivity;
 import com.example.applesugar.adapter.FriendsPagerAdapter;
 import com.example.applesugar.databinding.FragmentFriendsBinding;
@@ -19,7 +20,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 public class FriendsFragment extends Fragment {
     private FragmentFriendsBinding binding;
     private FriendsPagerAdapter adapter;
-    private String[] tabs = new String[]{"推荐", "关注"};
+    private String[] tabs = new String[]{"交流", "影评"};
 
     @Nullable
     @Override
@@ -40,7 +41,27 @@ public class FriendsFragment extends Fragment {
                 tab.setText(tabs[position]);
             }
         }).attach();
+        binding.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if(tab.getPosition() == 0){
+                    binding.fab.setOnClickListener(v -> requireContext().startActivity(new Intent(requireContext(), NewPostActivity.class)));
+                    return;
+                }
+                binding.fab.setOnClickListener(v -> requireContext().startActivity(new Intent(requireContext(), NewCommentActivity.class)));
+            }
 
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
         binding.fab.setOnClickListener(v -> requireContext().startActivity(new Intent(requireContext(), NewPostActivity.class)));
+
     }
 }

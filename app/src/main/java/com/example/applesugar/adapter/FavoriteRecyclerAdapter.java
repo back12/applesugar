@@ -1,6 +1,7 @@
 package com.example.applesugar.adapter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.applesugar.R;
 import com.example.applesugar.databinding.ItemFavoriteBinding;
 import com.example.applesugar.databinding.ItemFavoriteTopBinding;
@@ -41,7 +43,13 @@ public class FavoriteRecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
+        if(holder instanceof ItemViewHolder){
+            MarkedMovie item = list.get(position - 1);
+            Context context = holder.itemView.getContext();
+            Glide.with(context)
+                    .load(item.getUrl())
+                    .into(((ItemViewHolder) holder).cover);
+        }
     }
 
     @Override

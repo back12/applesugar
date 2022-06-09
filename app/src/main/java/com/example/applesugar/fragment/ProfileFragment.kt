@@ -1,6 +1,7 @@
 package com.example.applesugar.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.os.Bundle
@@ -15,6 +16,8 @@ import coil.request.Options
 import coil.size.Scale
 import coil.size.Size
 import coil.transform.CircleCropTransformation
+import com.example.applesugar.activity.MainActivity
+import com.example.applesugar.activity.WelcomeActivity
 import com.example.applesugar.databinding.FragmentProfileBinding
 import okio.buffer
 import okio.source
@@ -37,6 +40,10 @@ class ProfileFragment : Fragment() {
         binding.ivProfilePic.loadSvg(avatarUrl!!)
         binding.tvUsername.text = sp.getString("userName", "User")
 
+        binding.tvExit.setOnClickListener {
+            startActivity(Intent(requireContext(), WelcomeActivity::class.java))
+            requireActivity().finish()
+        }
     }
 
     private fun ImageView.loadSvg(url: String) {
