@@ -10,24 +10,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.applesugar.R;
 import com.example.applesugar.adapter.FavoriteRecyclerAdapter;
 import com.example.applesugar.databinding.FragmentFavoriteBinding;
-import com.example.applesugar.db.entity.MarkedMovie;
 import com.example.applesugar.utils.RecyclerViewItemDecoration;
-import com.example.applesugar.utils.ScreenUtil;
 import com.example.applesugar.viewmodel.MarkedMovieViewModel;
-import com.google.android.material.chip.ChipGroup;
-
-import java.util.List;
 
 public class FavoriteFragment extends Fragment {
     private FragmentFavoriteBinding binding;
